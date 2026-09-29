@@ -1,0 +1,466 @@
+/* =========================================
+   GENERAL PAGE STYLING
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+
+    /* Space for fixed header and footer */
+    padding-top: 105px;
+    padding-bottom: 70px;
+}
+
+
+/* =========================================
+   STEP 4 - FIXED HEADER WITH FLEXBOX
+   ========================================= */
+
+header {
+    background-color: #1f3c5b;
+    color: white;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    padding: 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+header p {
+    margin: 5px 0 0;
+}
+
+
+/* =========================================
+   STEP 1 - FLEXBOX NAVIGATION BAR
+   ========================================= */
+
+nav {
+    background-color: #333;
+
+    display: flex;
+
+    /* Centers navigation items */
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    /* Allows navigation to adjust on smaller screens */
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+    padding: 15px;
+
+    /* Each navigation item gets equal space */
+    flex-grow: 1;
+
+    text-align: center;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   STEP 2 - FLEXBOX MAIN CONTAINER
+   ========================================= */
+
+main {
+    display: flex;
+
+    /* Sections appear one after another */
+    flex-direction: column;
+
+    /* Allows content to wrap */
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    max-width: 1100px;
+
+    margin: 20px auto;
+
+    /* Keeps sections away from viewport edges */
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    /* Sections can grow and shrink */
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    scroll-margin-top: 120px;
+}
+
+
+/* =========================================
+   EDUCATION TABLE
+   ========================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #1f3c5b;
+    color: white;
+}
+
+
+/* =========================================
+   STEP 3 - SKILLS GRID
+   ========================================= */
+
+#skills {
+    display: grid;
+
+    /*
+       Automatically creates as many columns
+       as will fit on the screen.
+    */
+    grid-template-columns:
+        repeat(auto-fill, minmax(150px, 1fr));
+
+    gap: 15px;
+}
+
+#skills h2 {
+    /* Heading spans entire grid */
+    grid-column: 1 / -1;
+}
+
+.skill {
+    background-color: #1f3c5b;
+    color: white;
+
+    padding: 15px 20px;
+
+    border-radius: 5px;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        border-radius 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Highlight an important skill */
+
+.skill:first-of-type {
+    grid-column: span 2;
+}
+
+
+/* Skill Hover Effect */
+
+.skill:hover {
+    transform: scale(1.05);
+
+    background-color: #3f6f9f;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   STEP 3 - PROJECTS GRID
+   ========================================= */
+
+#projects {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(250px, 1fr));
+
+    gap: 20px;
+}
+
+#projects h2 {
+    grid-column: 1 / -1;
+}
+
+.project {
+    background-color: #f8f8f8;
+
+    padding: 20px;
+
+    border-radius: 8px;
+
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+
+/* Make first project larger / highlighted */
+
+.project:first-of-type {
+    grid-column: span 2;
+}
+
+
+/* =========================================
+   PROJECT IMAGES
+   ========================================= */
+
+.project-image {
+    width: 100%;
+    height: auto;
+
+    border-radius: 8px;
+
+    margin-top: 10px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.project-image:hover {
+    transform: scale(1.05);
+
+    opacity: 0.8;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   DOWNLOAD RESUME BUTTON
+   ========================================= */
+
+.resume-button {
+    display: inline-block;
+
+    background-color: #1f3c5b;
+    color: white;
+
+    padding: 12px 20px;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    transition:
+        background-color 0.3s ease,
+        border-radius 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.resume-button:hover {
+    background-color: #3f6f9f;
+
+    border-radius: 20px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   STEP 4 - FIXED FOOTER WITH FLEXBOX
+   ========================================= */
+
+footer {
+    background-color: #333;
+    color: white;
+
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    padding: 15px;
+
+    z-index: 1000;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN - 1024px
+   ========================================= */
+
+@media (max-width: 1024px) {
+
+    header h1 {
+        font-size: 32px;
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN - TABLET 768px
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        flex-grow: 1;
+        min-width: 33%;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    #skills {
+        grid-template-columns:
+            repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    #projects {
+        grid-template-columns: 1fr;
+    }
+
+    .project:first-of-type {
+        grid-column: span 1;
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN - MOBILE 480px
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    #skills {
+        grid-template-columns: 1fr;
+    }
+
+    .skill:first-of-type {
+        grid-column: span 1;
+    }
+
+    #projects {
+        grid-template-columns: 1fr;
+    }
+
+    .project:first-of-type {
+        grid-column: span 1;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 6px;
+    }
+
+    .resume-button {
+        width: 100%;
+        text-align: center;
+    }
+
+}
